@@ -14,7 +14,7 @@ def load_and_preprocess_image(image_path, target_size=(224, 224)):
 
 # loaded_model = joblib.load('./bird_image_classification.joblib')
 
-model_file = 'bird_image_classification.keras'
+model_file = 'bird_image_classification.h5'
 loaded_model = None
 if not os.path.exists(model_file):
     st.error(f"Model file '{model_file}' not found.")
