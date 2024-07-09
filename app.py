@@ -29,6 +29,14 @@ def main():
     st.title("Bird Image Classification")
     uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
+    classes = np.array(['ABBOTTS BABBLER',
+    'ABBOTTS BOOBY','ABYSSINIAN GROUND HORNBILL','AFRICAN CROWNED CRANE',
+    'AFRICAN EMERALD CUCKOO','AFRICAN FIREFINCH','AFRICAN OYSTER CATCHER',
+    'AFRICAN PIED HORNBILL','AFRICAN PYGMY GOOSE','ALBATROSS',
+    'ALBERTS TOWHEE','ALEXANDRINE PARAKEET','ALPINE CHOUGH',
+    'ALTAMIRA YELLOWTHROAT','AMERICAN AVOCET','AMERICAN BITTERN',
+    'AMERICAN COOT','AMERICAN FLAMINGO','AMERICAN GOLDFINCH','AMERICAN KESTREL'])
+        
     if uploaded_image is not None:
         st.image(uploaded_image, caption="Uploaded Image...",width=200)
         st.write("")
@@ -38,16 +46,7 @@ def main():
         
         result = loaded_model.predict(converted_image)
 
-        classes = np.array(['ABBOTTS BABBLER',
-                            'ABBOTTS BOOBY','ABYSSINIAN GROUND HORNBILL','AFRICAN CROWNED CRANE',
-                            'AFRICAN EMERALD CUCKOO','AFRICAN FIREFINCH','AFRICAN OYSTER CATCHER',
-                            'AFRICAN PIED HORNBILL','AFRICAN PYGMY GOOSE','ALBATROSS',
-                            'ALBERTS TOWHEE','ALEXANDRINE PARAKEET','ALPINE CHOUGH',
-                            'ALTAMIRA YELLOWTHROAT','AMERICAN AVOCET','AMERICAN BITTERN',
-                            'AMERICAN COOT','AMERICAN FLAMINGO','AMERICAN GOLDFINCH','AMERICAN KESTREL'])
-        st.warning(classes)
         st.warning(classes[np.argmax(result)])
-        st.warning(np.argmax(result))
 
 if __name__ == "__main__":
     main()
