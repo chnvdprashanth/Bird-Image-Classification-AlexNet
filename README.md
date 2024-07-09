@@ -15,13 +15,13 @@
 Here are some screenshots of the Streamlit app in action:
 
 ### Home Page
-![Home Page](https://drive.google.com/uc?id=1R74RIeLu0UauDE9pxn2UluRBWDsmgOJU)
+![Home Page](https://drive.usercontent.google.com/download?id=1R74RIeLu0UauDE9pxn2UluRBWDsmgOJU&authuser=0)
 
 ### Upload Image
-![Upload Image](https://drive.google.com/uc?id=1xFM93_i8gr3oXrl9Fx3FhlM5xxza64bO)
+![Upload Image](https://drive.usercontent.google.com/download?id=1xFM93_i8gr3oXrl9Fx3FhlM5xxza64bO&authuser=0)
 
 ### Prediction Result
-![Prediction Result](https://drive.google.com/uc?id=1qwuWDseVABPbPWbSvqOP1NMThB4AW1AL)
+![Prediction Result](https://drive.usercontent.google.com/download?id=1qwuWDseVABPbPWbSvqOP1NMThB4AW1AL&authuser=0)
 
 ## Introduction
 The Bird Image Classifier is a machine learning project inspired by the AlexNet architecture. It is designed to classify bird species from images. The model is trained on a dataset of 20 bird species obtained from Kaggle and features a user interface built with Streamlit.
