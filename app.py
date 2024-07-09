@@ -38,7 +38,13 @@ def main():
         
         result = loaded_model.predict(converted_image)
 
-        classes = np.array(os.listdir("./train"))
+        classes = np.array(['ABBOTTS BABBLER',
+                            'ABBOTTS BOOBY','ABYSSINIAN GROUND HORNBILL','AFRICAN CROWNED CRANE',
+                            'AFRICAN EMERALD CUCKOO','AFRICAN FIREFINCH','AFRICAN OYSTER CATCHER',
+                            'AFRICAN PIED HORNBILL','AFRICAN PYGMY GOOSE','ALBATROSS',
+                            'ALBERTS TOWHEE','ALEXANDRINE PARAKEET','ALPINE CHOUGH',
+                            'ALTAMIRA YELLOWTHROAT','AMERICAN AVOCET','AMERICAN BITTERN',
+                            'AMERICAN COOT','AMERICAN FLAMINGO','AMERICAN GOLDFINCH','AMERICAN KESTREL'])
         st.warning(classes)
         st.warning(classes[np.argmax(result)])
         st.warning(np.argmax(result))
