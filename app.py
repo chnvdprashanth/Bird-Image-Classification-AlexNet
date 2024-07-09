@@ -39,6 +39,7 @@ def main():
         result = loaded_model.predict(converted_image)
 
         classes = np.array(os.listdir("./train"))
+        st.warning(classes)
         st.warning(classes[np.argmax(result)])
         st.warning(np.argmax(result))
 
