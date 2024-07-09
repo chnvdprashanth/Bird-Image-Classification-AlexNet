@@ -40,6 +40,7 @@ def main():
 
         classes = np.array(os.listdir("./train"))
         st.warning(classes[np.argmax(result)])
+        st.warning(np.argmax(result))
 
 if __name__ == "__main__":
     main()
