@@ -37,7 +37,7 @@ To run this project locally, follow these steps:
 
 1. Clone the repository:
     ```bash
-    git clone https://github.com/your-username/bird-image-classifier.git
+    git clone https://github.com/chnvdprashanth/bird-image-classifier.git
     ```
 2. Navigate to the project directory:
     ```bash
