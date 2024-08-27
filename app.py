@@ -41,7 +41,7 @@ def main():
     'AMERICAN COOT','AMERICAN FLAMINGO','AMERICAN GOLDFINCH','AMERICAN KESTREL'])
     
     st.write("Choose Images from Given Bird Species : ")
-    st.write(classes)
+    st.write(classes,width=500)
 
     if uploaded_image is not None:
         st.image(uploaded_image, caption="Uploaded Image...",width=200)
