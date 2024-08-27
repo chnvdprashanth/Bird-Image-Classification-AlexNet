@@ -40,7 +40,7 @@ def main():
     'ALTAMIRA YELLOWTHROAT','AMERICAN AVOCET','AMERICAN BITTERN',
     'AMERICAN COOT','AMERICAN FLAMINGO','AMERICAN GOLDFINCH','AMERICAN KESTREL'])
 
-    reshaped_classes = classes.reshape(4,6)
+    reshaped_classes = classes.reshape(4,5)
     df = pd.DataFrame(reshaped_classes,columns=[f'Column {i+1}' for i in range(5)])
     
     st.write("Choose Images from Given Bird Species : ")
