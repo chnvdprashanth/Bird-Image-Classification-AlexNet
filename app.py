@@ -7,14 +7,14 @@ import tensorflow as tf
 
 def load_and_preprocess_image(image_path, target_size=(224, 224)):
     image = Image.open(image_path)
-    width,hiegth = image.size
-    left,right,top,bottom = 0,0,0,0
-    if(width>244):
-        left,right = (width-224)//2,(width-224)//2
-    if(hiegth>244):
-        top,bottom = (hiegth-244)//2,(hiegth-244)//2
+    width,height = image.size
+
+    left = (width - 224) // 2 if width > 224 else 0
+    right = width - left if width > 224 else width
+    top = (height - 224) // 2 if height > 224 else 0
+    bottom = height - top if height > 224 else height
     
-    image = image.crop((left,right,top,bottom))
+    image = image.crop((left,top,right,bottom))
     image = image.resize(target_size)
     image_array = np.array(image) / 255.0
     image_array = np.expand_dims(image_array, axis=0)
