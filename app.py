@@ -7,6 +7,9 @@ import tensorflow as tf
 
 def load_and_preprocess_image(image_path, target_size=(224, 224)):
     image = Image.open(image_path)
+    width,hiegth = image.size
+    left,right,top,bottom = (width-224)//2,(width-224)//2,(hiegth-224)//2,(hiegth-224)//2
+    image = image.crop((left,right,top,bottom))
     image = image.resize(target_size)
     image_array = np.array(image) / 255.0
     image_array = np.expand_dims(image_array, axis=0)
