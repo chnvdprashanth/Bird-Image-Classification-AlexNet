@@ -1,6 +1,6 @@
 import streamlit as st
 import numpy as np
-import joblib
+import pandas as pd
 from PIL import Image
 import os
 import tensorflow as tf
@@ -39,9 +39,12 @@ def main():
     'ALBERTS TOWHEE','ALEXANDRINE PARAKEET','ALPINE CHOUGH',
     'ALTAMIRA YELLOWTHROAT','AMERICAN AVOCET','AMERICAN BITTERN',
     'AMERICAN COOT','AMERICAN FLAMINGO','AMERICAN GOLDFINCH','AMERICAN KESTREL'])
+
+    reshaped_classes = classes.reshape(4,6)
+    df = pd.DataFrame(reshaped_classes,columns=[f'Column {i+1}' for i in range(5)])
     
     st.write("Choose Images from Given Bird Species : ")
-    st.write(classes,width=500)
+    st.table(df)
 
     if uploaded_image is not None:
         st.image(uploaded_image, caption="Uploaded Image...",width=200)
