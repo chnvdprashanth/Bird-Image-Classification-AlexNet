@@ -1,21 +1,23 @@
 import streamlit as st
 import numpy as np
 import pandas as pd
-from PIL import Image
+from PIL import Image, ImageOps
 import os
 import tensorflow as tf
 
 def load_and_preprocess_image(image_path, target_size=(224, 224)):
     image = Image.open(image_path)
-    width,height = image.size
+    # Resize the image while maintaining aspect ratio
+    image.thumbnail(target_size, Image.ANTIALIAS)
 
-    left = (width - 224) // 2 if width > 224 else 0
-    right = width - left if width > 224 else width
-    top = (height - 224) // 2 if height > 224 else 0
-    bottom = height - top if height > 224 else height
-    
-    image = image.crop((left,top,right,bottom))
-    image = image.resize(target_size)
+    # Calculate padding to make the image square
+    delta_width = target_size[0] - image.size[0]
+    delta_height = target_size[1] - image.size[1]
+    padding = (delta_width // 2, delta_height // 2, delta_width - (delta_width // 2), delta_height - (delta_height // 2))
+
+    # Pad the image and make it square
+    image = ImageOps.expand(image, padding, fill=(0, 0, 0))  # You can change the fill color as needed
+
     image_array = np.array(image) / 255.0
     image_array = np.expand_dims(image_array, axis=0)
     return image_array
