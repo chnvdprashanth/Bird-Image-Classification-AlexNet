@@ -39,7 +39,10 @@ def main():
     'ALBERTS TOWHEE','ALEXANDRINE PARAKEET','ALPINE CHOUGH',
     'ALTAMIRA YELLOWTHROAT','AMERICAN AVOCET','AMERICAN BITTERN',
     'AMERICAN COOT','AMERICAN FLAMINGO','AMERICAN GOLDFINCH','AMERICAN KESTREL'])
-        
+    
+    st.write("Choose Images from Given Bird Species : ")
+    st.write(classes)
+
     if uploaded_image is not None:
         st.image(uploaded_image, caption="Uploaded Image...",width=200)
         st.write("")
