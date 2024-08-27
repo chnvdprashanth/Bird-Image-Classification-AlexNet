@@ -9,6 +9,7 @@ def load_and_preprocess_image(image_path, target_size=(224, 224)):
     image = Image.open(image_path)
     width,hiegth = image.size
     left,right,top,bottom = (width-224)//2,(width-224)//2,(hiegth-224)//2,(hiegth-224)//2
+    
     image = image.crop((left,right,top,bottom))
     image = image.resize(target_size)
     image_array = np.array(image) / 255.0
@@ -30,7 +31,6 @@ else:
 
 def main():
     st.title("Bird Image Classification")
-    uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
     classes = np.array(['ABBOTTS BABBLER',
     'ABBOTTS BOOBY','ABYSSINIAN GROUND HORNBILL','AFRICAN CROWNED CRANE',
@@ -43,17 +43,15 @@ def main():
     reshaped_classes = classes.reshape(4,5)
     
     st.write("Choose from below Bird Species: ")
-    # for row in reshaped_classes:
-    #     cols = st.columns(5)
-    #     for idx, col in enumerate(cols):
-    #         col.markdown(f"<div style='background-color: black; color: white; padding: 10px; margin: 5px; text-align: center; border-radius: 10px;'>{row[idx]}</div>", unsafe_allow_html=True)
-
-    with st.expander("Click to view bird species"):
-        for species in classes:
-            st.write(f"• {species}")
+    for row in reshaped_classes:
+        cols = st.columns(5)
+        for idx, col in enumerate(cols):
+            col.markdown(f"<div style='background-color: black; color: white; padding: 10px; margin: 5px; text-align: center; border-radius: 10px;'>{row[idx]}</div>", unsafe_allow_html=True)
+    
+    uploaded_image = st.file_uploader("Choose an image...", type=["jpg", "jpeg", "png"])
 
     if uploaded_image is not None:
-        st.image(uploaded_image, caption="Uploaded Image...",width=200)
+        st.image(uploaded_image, caption="Uploaded Image...",width=300)
         st.write("")
         st.write("Classifying...")
 
