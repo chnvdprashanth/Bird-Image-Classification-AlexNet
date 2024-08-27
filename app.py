@@ -41,10 +41,11 @@ def main():
     'AMERICAN COOT','AMERICAN FLAMINGO','AMERICAN GOLDFINCH','AMERICAN KESTREL'])
 
     reshaped_classes = classes.reshape(4,5)
-    df = pd.DataFrame(reshaped_classes,columns=[f'Column {i+1}' for i in range(5)])
     
-    st.write("Choose Images from Given Bird Species : ")
-    st.table(df)
+    for row in reshaped_classes:
+        cols = st.columns(5)
+        for idx, col in enumerate(cols):
+            col.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; text-align: center; border-radius: 10px;'>{row[idx]}</div>", unsafe_allow_html=True)
 
     if uploaded_image is not None:
         st.image(uploaded_image, caption="Uploaded Image...",width=200)
