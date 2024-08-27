@@ -8,7 +8,11 @@ import tensorflow as tf
 def load_and_preprocess_image(image_path, target_size=(224, 224)):
     image = Image.open(image_path)
     width,hiegth = image.size
-    left,right,top,bottom = (width-224)//2,(width-224)//2,(hiegth-224)//2,(hiegth-224)//2
+    left,right,top,bottom = 0,0,0,0
+    if(width>244):
+        left,right = (width-224)//2,(width-224)//2
+    if(hiegth>244):
+        top,bottom = (hiegth-244)//2,(hiegth-244)//2
     
     image = image.crop((left,right,top,bottom))
     image = image.resize(target_size)
