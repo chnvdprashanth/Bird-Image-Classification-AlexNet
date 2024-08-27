@@ -8,7 +8,7 @@ import tensorflow as tf
 def load_and_preprocess_image(image_path, target_size=(224, 224)):
     image = Image.open(image_path)
     # Resize the image while maintaining aspect ratio
-    image.thumbnail(target_size, Image.ANTIALIAS)
+    image.thumbnail(target_size, Image.LANCZOS)
 
     # Calculate padding to make the image square
     delta_width = target_size[0] - image.size[0]
