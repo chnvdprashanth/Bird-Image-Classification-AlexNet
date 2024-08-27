@@ -45,7 +45,7 @@ def main():
     for row in reshaped_classes:
         cols = st.columns(5)
         for idx, col in enumerate(cols):
-            col.markdown(f"<div style='background-color: #f0f0f0; padding: 10px; text-align: center; border-radius: 10px;'>{row[idx]}</div>", unsafe_allow_html=True)
+            col.markdown(f"<div style='background-color: black; color: white; padding: 10px; margin: 5px; text-align: center; border-radius: 10px;'>{row[idx]}</div>", unsafe_allow_html=True)
 
     if uploaded_image is not None:
         st.image(uploaded_image, caption="Uploaded Image...",width=200)
